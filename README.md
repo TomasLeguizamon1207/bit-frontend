@@ -10,9 +10,6 @@ Este es un sistema web para la gestión de vuelos y administración de empleados
 - **Node.js** + **Express** (API backend)
 - **MongoDB** (Base de datos)
 - **Bootstrap / CSS custom** (Interfaz)
-- **Toastr** (Notificaciones)
-- **ngx-toastr** (para mensajes rápidos)
-
 ---
 
 ## ⚙️ Requisitos
