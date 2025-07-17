@@ -10,15 +10,7 @@ export class SigninService {
 
   constructor(private http: HttpClient) {}
 
-  login(credentials: { email: string; password: string }): Observable<any> {
-    return this.http.post(this.apiUrl, credentials);
-  }
-
-  isLoggedIn(): boolean {
-    return !!localStorage.getItem('token');
-  }
-
-  getUserRole(): string | null {
-    return localStorage.getItem('role');
+  login(data: { email: string; password: string; role: string }): Observable<any> {
+    return this.http.post(this.apiUrl, data);
   }
 }

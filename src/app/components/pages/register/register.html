@@ -1,1 +1,56 @@
-<p>register works!</p>
+<div class="register-container">
+  <h2>Registro de Usuario</h2>
+  <div *ngIf="successMessage" class="alert success">{{ successMessage }}</div>
+  <div *ngIf="errorMessage" class="alert error">{{ errorMessage }}</div>
+
+  <form [formGroup]="registerForm" (ngSubmit)="handleSubmit()">
+    <input
+      id="name"
+      formControlName="name"
+      type="text"
+      placeholder="Nombre completo"
+      class="input-red"
+    />
+
+    <input
+      id="email"
+      formControlName="email"
+      type="email"
+      placeholder="correo@efybit.com"
+      class="input-red"
+    />
+    <div class="password-container">
+      <input
+        id="password"
+        formControlName="password"
+        [type]="showPassword ? 'text' : 'password'"
+        placeholder="Contraseña (mínimo 6 caracteres)"
+        class="input-red"
+      />
+      <button type="button" class="eye-button" (click)="togglePassword()">
+        {{ showPassword ? '🙈' : '👁️' }}
+      </button>
+    </div>
+    <select
+      id="role"
+      formControlName="role"
+      class="input-red"
+    >
+      <option value="">Selecciona un rol</option>
+      <option value="admin">Administrador</option>
+      <option value="empleado">Empleado</option>
+    </select>
+
+    <input
+      id="secret"
+      formControlName="secret"
+      type="text"
+      placeholder="Palabra clave"
+      class="input-red"
+    />
+
+    <button type="submit">Registrarse</button>
+  </form>
+
+  <p>¿Ya tienes cuenta? <a (click)="goToLogin()">Inicia sesión aquí</a></p>
+</div>

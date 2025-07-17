@@ -10,7 +10,7 @@ export class SignupService {
 
   constructor(private http: HttpClient) {}
 
-  register(data: { name: string; email: string; password: string; role: string }): Observable<any> {
+  register(data: { name: string; email: string; password: string; role: string; secret:string }): Observable<any> {
     return this.http.post(this.apiUrl, data);
   }
 }

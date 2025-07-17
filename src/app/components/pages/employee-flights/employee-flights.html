@@ -1,0 +1,89 @@
+<div class="container">
+  <div class="main-content">
+    <h1>Administra Vuelos</h1>
+
+    <div class="card">
+      <h2>✈️ Crear Vuelo</h2>
+      <form (ngSubmit)="createFlight()" #flightForm="ngForm" class="form">
+        <label>
+          Número de vuelo:
+          <input type="text" [(ngModel)]="newFlight.flightNumber" name="flightNumber" required />
+        </label>
+        <label>
+          Origen:
+          <input type="text" [(ngModel)]="newFlight.origin" name="origin" required />
+        </label>
+        <label>
+          Destino:
+          <input type="text" [(ngModel)]="newFlight.destination" name="destination" required />
+        </label>
+        <label>
+          Hora de salida:
+          <input type="datetime-local" [(ngModel)]="newFlight.departureTime" name="departureTime" required />
+        </label>
+        <label>
+          Estado:
+          <select [(ngModel)]="newFlight.status" name="status" required>
+            <option value="scheduled">scheduled</option>
+            <option value="departured">departured</option>
+            <option value="arrived">arrived</option>
+            <option value="delayed">delayed</option>
+          </select>
+        </label>
+        <button type="submit" class="btn btn-primary" [disabled]="flightForm.invalid">Crear Vuelo</button>
+      </form>
+    </div>
+
+    <div class="card">
+      <h2>📋 Lista de Vuelos</h2>
+      <ul class="flight-list">
+        <li *ngFor="let flight of flights" class="flight-item">
+          <div>
+            <b>{{ flight.flightNumber }}</b> | {{ flight.origin }} ➡️ {{ flight.destination }} |
+            {{ flight.departureTime }} | Estado: {{ flight.status }}
+          </div>
+          <div class="actions">
+            <button class="btn btn-danger" (click)="deleteFlight(flight._id)">Eliminar</button>
+            <button class="btn btn-warning" (click)="startEdit(flight)">Editar</button>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div *ngIf="editingFlight" class="card">
+      <h3> Editar Vuelo</h3>
+      <form (ngSubmit)="updateFlight()" class="form">
+        <label>
+          Número de vuelo:
+          <input type="text" [(ngModel)]="editingFlight.flightNumber" name="editFlightNumber" />
+        </label>
+        <label>
+          Origen:
+          <input type="text" [(ngModel)]="editingFlight.origin" name="editOrigin" />
+        </label>
+        <label>
+          Destino:
+          <input type="text" [(ngModel)]="editingFlight.destination" name="editDestination" />
+        </label>
+        <label>
+          Hora de salida:
+          <input type="datetime-local" [(ngModel)]="editingFlight.departureTime" name="editDepartureTime" />
+        </label>
+        <label>
+          Estado:
+          <select [(ngModel)]="editingFlight.status" name="editStatus">
+            <option value="scheduled">scheduled</option>
+            <option value="departured">departured</option>
+            <option value="arrived">arrived</option>
+            <option value="delayed">delayed</option>
+          </select>
+        </label>
+        <div class="edit-actions">
+          <button class="btn btn-primary" type="submit">Guardar Cambios</button>
+          <button class="btn btn-secondary" type="button" (click)="cancelEdit()">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+

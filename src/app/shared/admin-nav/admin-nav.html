@@ -1,0 +1,20 @@
+<div class="admin-layout">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h1>EasyFly Admin</h1>
+    </div>
+    <nav class="sidebar-nav">
+      <a routerLink="/admin/flights" routerLinkActive="active-link">Vuelos</a>
+      <a routerLink="/admin/payroll" routerLinkActive="active-link">Nómina</a>
+    </nav>
+    <div class="sidebar-footer">
+      <p>© 2025 EasyFly</p>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <router-outlet></router-outlet>
+  </main>
+</div>
