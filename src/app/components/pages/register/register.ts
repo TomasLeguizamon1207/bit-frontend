@@ -39,18 +39,18 @@ export class Register {
     if (this.registerForm.valid) {
       this.signupService.register(this.registerForm.value).subscribe({
         next: (res: any) => {
-          this.successMessage = '✅ Registro exitoso';
+          this.successMessage = ' Registro exitoso';
           this.errorMessage = '';
           setTimeout(() => this.router.navigate(['/sign-in']), 2000);
         },
         error: (err: any) => {
           console.error(err);
           this.successMessage = '';
-          this.errorMessage = err.error?.message || '❌ Error al registrar';
+          this.errorMessage = err.error?.message || ' Error al registrar';
         },
       });
     } else {
-      this.errorMessage = '❌ Por favor llena todos los campos correctamente';
+      this.errorMessage = 'Por favor llena todos los campos correctamente';
     }
   }
 

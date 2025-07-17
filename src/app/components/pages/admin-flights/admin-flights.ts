@@ -34,7 +34,7 @@ export class AdminFlights implements OnInit {
         this.flights = response.data || [];
       },
       error: (err) => {
-        console.error('❌ Error al obtener vuelos:', err);
+        console.error(' Error al obtener vuelos:', err);
       }
     });
   }
@@ -45,12 +45,12 @@ export class AdminFlights implements OnInit {
 
     this.http.post<any>('http://localhost:4000/flights', payload).subscribe({
       next: () => {
-        console.log('✅ Vuelo creado');
+        console.log('Vuelo creado');
         this.getFlights();
         this.newFlight = { flightNumber: '', origin: '', destination: '', departureTime: '', status: 'scheduled' };
       },
       error: (err) => {
-        console.error('❌ Error al crear vuelo:', err);
+        console.error(' Error al crear vuelo:', err);
       }
     });
   }
@@ -58,11 +58,11 @@ export class AdminFlights implements OnInit {
   deleteFlight(id: string): void {
     this.http.delete<any>(`http://localhost:4000/flights/${id}`).subscribe({
       next: () => {
-        console.log('✅ Vuelo eliminado');
+        console.log(' Vuelo eliminado');
         this.getFlights();
       },
       error: (err) => {
-        console.error('❌ Error al eliminar vuelo:', err);
+        console.error(' Error al eliminar vuelo:', err);
       }
     });
   }
@@ -80,12 +80,12 @@ export class AdminFlights implements OnInit {
 
     this.http.put<any>(`http://localhost:4000/flights/${payload._id}`, payload).subscribe({
       next: () => {
-        console.log('✅ Vuelo actualizado');
+        console.log(' Vuelo actualizado');
         this.getFlights();
         this.editingFlight = null;
       },
       error: (err) => {
-        console.error('❌ Error al actualizar vuelo:', err);
+        console.error(' Error al actualizar vuelo:', err);
       }
     });
   }

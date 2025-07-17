@@ -3,7 +3,7 @@
     <h1>Administra Vuelos</h1>
 
     <div class="card">
-      <h2>✈️ Crear Vuelo</h2>
+      <h2> Crear Vuelo</h2>
       <form (ngSubmit)="createFlight()" #flightForm="ngForm" class="form">
         <label>
           Número de vuelo:
@@ -35,7 +35,7 @@
     </div>
 
     <div class="card">
-      <h2>📋 Lista de Vuelos</h2>
+      <h2> Lista de Vuelos</h2>
       <ul class="flight-list">
         <li *ngFor="let flight of flights" class="flight-item">
           <div>

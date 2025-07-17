@@ -6,11 +6,11 @@ Este es un sistema web para la gestión de vuelos y administración de empleados
 
 ## 🚀 Tecnologías usadas
 
-- **Angular 17** (standalone components)
-- **Node.js** + **Express** (API backend)
-- **MongoDB** (Base de datos)
-- **Bootstrap / CSS custom** (Interfaz)
----
+- **Angular**
+- **Node.js** + **Express** 
+- **MongoDB**
+- **Bootstrap / CSS custom** 
+
 
 ## ⚙️ Requisitos
 
