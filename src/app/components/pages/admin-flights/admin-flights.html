@@ -1,11 +1,4 @@
 <div class="container">
-  <nav class="sidebar">
-    <h2>Admin Panel</h2>
-    <ul>
-      <li><a>Vuelos</a></li>
-      <li><a routerLink="/payroll" routerLinkActive="active">Usuarios</a></li>
-    </ul>
-  </nav>
   <div class="main-content">
     <h1>Administra Vuelos</h1>
 
@@ -31,10 +24,10 @@
         <label>
           Estado:
           <select [(ngModel)]="newFlight.status" name="status" required>
-            <option value="scheduled">scheduled</option>
-            <option value="departured">departured</option>
-            <option value="arrived">arrived</option>
-            <option value="delayed">delayed</option>
+            <option value="scheduled">Planificado</option>
+            <option value="departured">Despegado</option>
+            <option value="arrived">Aterrizado</option>
+            <option value="delayed">Demorado</option>
           </select>
         </label>
         <button type="submit" class="btn btn-primary" [disabled]="flightForm.invalid">Crear Vuelo</button>
